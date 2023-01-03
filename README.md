@@ -16,3 +16,14 @@
 
 * admin
 * admin12345
+
+### How to run:
+- Create venv: `python -m venv venv`
+- Activate it: `venv\scripts\activate`
+- Install requirements: `pip install -r requirements.txt`
+- Run migrations: `python manage.py migrate`
+- Run Redis Server: `docker run -d -p 6379:6379 redis`
+- Run celery worker for task handling: `celery -A rick_and_morty_api worker -l info -P eventlet`
+- Run celery bear for task scheduling: `celery -A <mymodul> beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler`
+- Create schedule for running sync in BD
+- Run app: `python manage.py runserver`
